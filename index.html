@@ -206,6 +206,34 @@
   .item.transit .time{color:var(--ink-faint); font-weight:400;}
   .item.transit .content{font-size:12.5px; color:#5A5450; line-height:1.5;}
 
+  /* ---------- FX Converter ---------- */
+  .fx-card{
+    border-radius:var(--radius-lg); background:var(--paper-raised); border:1px solid var(--line);
+    padding:20px; margin:22px 0 6px; box-shadow:var(--shadow-card);
+  }
+  .fx-rate-line{display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .fx-rate-line .rate{font-size:13.5px; color:var(--ink-soft);}
+  .fx-rate-line .rate b{color:var(--ink); font-weight:800;}
+  .fx-refresh{font-size:12px; font-weight:700; color:var(--teal); background:none; border:1px solid var(--teal); border-radius:999px; padding:4px 11px; cursor:pointer;}
+  .fx-row{display:flex; align-items:center; gap:10px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-md); padding:10px 14px; margin-bottom:10px;}
+  .fx-row .flag{font-size:20px; flex-shrink:0;}
+  .fx-row .cur-label{font-size:12.5px; font-weight:800; color:var(--ink-soft); width:38px; flex-shrink:0;}
+  .fx-row input{
+    flex:1; border:none; background:transparent; font-size:19px; font-weight:800; color:var(--ink);
+    font-family:inherit; outline:none; min-width:0; text-align:right;
+  }
+  .fx-swap{display:flex; justify-content:center; margin:-4px 0 6px;}
+  .fx-swap button{
+    width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:#fff;
+    color:var(--teal); font-size:16px; cursor:pointer; box-shadow:var(--shadow-card);
+  }
+  .fx-quick{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+  .fx-quick button{
+    font-size:12.5px; font-weight:700; color:var(--teal); background:var(--teal-tint);
+    border:none; border-radius:999px; padding:6px 12px; cursor:pointer;
+  }
+  .fx-note{font-size:11.5px; color:var(--ink-faint); margin-top:10px;}
+
   @media (max-width:420px){ header.hero{padding:32px 16px 28px;} }
 </style>
 </head>
@@ -244,6 +272,34 @@
 </header>
 
 <div class="wrap">
+
+<div class="fx-card">
+  <div class="fx-rate-line">
+    <div class="rate">1 SGD = <b id="fx-rate-display">1,058</b> KRW</div>
+    <button class="fx-refresh" onclick="fxRefresh()">↻ 새로고침</button>
+  </div>
+
+  <div class="fx-row">
+    <span class="flag">🇸🇬</span>
+    <span class="cur-label">SGD</span>
+    <input type="text" inputmode="decimal" id="fx-sgd" value="100">
+  </div>
+  <div class="fx-swap"><button onclick="fxSwap()">⇅</button></div>
+  <div class="fx-row">
+    <span class="flag">🇰🇷</span>
+    <span class="cur-label">KRW</span>
+    <input type="text" inputmode="decimal" id="fx-krw" value="0">
+  </div>
+
+  <div class="fx-quick">
+    <button onclick="fxSetSGD(10)">S$10</button>
+    <button onclick="fxSetSGD(20)">S$20</button>
+    <button onclick="fxSetSGD(50)">S$50</button>
+    <button onclick="fxSetSGD(100)">S$100</button>
+    <button onclick="fxSetSGD(200)">S$200</button>
+  </div>
+  <div class="fx-note" id="fx-updated">환율은 실시간 참고용이에요 (실제 카드/현금 환전 시엔 수수료가 붙어요) · 마지막 업데이트: 불러오는 중…</div>
+</div>
 
 <section class="checklist">
   <h2 class="section-title">출국 전 체크리스트</h2>
@@ -691,6 +747,80 @@ function openLightbox(src){
 function closeLightbox(){
   document.getElementById('lightbox-overlay').style.display = 'none';
 }
+</script>
+
+<script>
+(function(){
+  var FALLBACK_RATE = 1058; // 1 SGD = ? KRW, fetch 실패 시 대체값
+  var rate = FALLBACK_RATE;
+  var sgdInput = document.getElementById('fx-sgd');
+  var krwInput = document.getElementById('fx-krw');
+  var rateDisplay = document.getElementById('fx-rate-display');
+  var updatedNote = document.getElementById('fx-updated');
+  var lastEdited = 'sgd';
+
+  function fmt(n){
+    return Math.round(n).toLocaleString('ko-KR');
+  }
+  function parseNum(v){
+    var n = parseFloat(String(v).replace(/,/g,''));
+    return isNaN(n) ? 0 : n;
+  }
+
+  function recalc(){
+    if(lastEdited === 'sgd'){
+      var sgd = parseNum(sgdInput.value);
+      krwInput.value = fmt(sgd * rate);
+    } else {
+      var krw = parseNum(krwInput.value);
+      sgdInput.value = (krw / rate).toFixed(2);
+    }
+  }
+
+  window.fxSetSGD = function(v){
+    lastEdited = 'sgd';
+    sgdInput.value = v;
+    recalc();
+  };
+  window.fxSwap = function(){
+    var tmp = sgdInput.parentElement;
+    // 단순 값 스왑이 아니라 입력 포커스 방향만 바꿔주는 용도
+    lastEdited = (lastEdited === 'sgd') ? 'krw' : 'sgd';
+    recalc();
+  };
+  window.fxRefresh = function(){
+    updatedNote.textContent = '환율 갱신 중…';
+    fetchRate();
+  };
+
+  function fetchRate(){
+    fetch('https://open.er-api.com/v6/latest/SGD')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if(data && data.rates && data.rates.KRW){
+          rate = data.rates.KRW;
+          rateDisplay.textContent = fmt(rate);
+          var d = new Date();
+          updatedNote.textContent = '실시간 환율 (' + d.toLocaleTimeString('ko-KR', {hour:'2-digit', minute:'2-digit'}) + ' 기준) · 실제 환전/카드 결제 시엔 수수료가 붙어요';
+          recalc();
+        } else {
+          throw new Error('no rate');
+        }
+      })
+      .catch(function(){
+        rate = FALLBACK_RATE;
+        rateDisplay.textContent = fmt(rate);
+        updatedNote.textContent = '실시간 환율을 불러오지 못해 참고값(약 1,058원)을 사용 중이에요';
+        recalc();
+      });
+  }
+
+  sgdInput.addEventListener('input', function(){ lastEdited = 'sgd'; recalc(); });
+  krwInput.addEventListener('input', function(){ lastEdited = 'krw'; recalc(); });
+
+  recalc();
+  fetchRate();
+})();
 </script>
 
 <script>
