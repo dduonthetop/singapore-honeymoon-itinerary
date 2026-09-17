@@ -181,6 +181,16 @@
   .deck-links{display:flex; flex-wrap:wrap; gap:10px; margin:6px 0;}
   .deck-links a{font-size:13px; font-weight:700; color:var(--cruise); text-decoration:underline;}
 
+  .transit-box{border:1.5px solid var(--teal); border-radius:var(--radius-lg); background:var(--teal-tint); padding:16px 18px; margin-bottom:16px;}
+  .transit-box .tag{display:inline-block; font-size:12.5px; font-weight:800; color:#fff; background:var(--teal); padding:4px 11px; border-radius:999px; margin-bottom:8px;}
+  .transit-box p{margin:6px 0; font-size:13.5px; color:var(--ink-soft);}
+  .transit-btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
+  .transit-btns a{font-size:13px; font-weight:700; color:#fff; background:var(--teal); padding:8px 14px; border-radius:999px; text-decoration:none;}
+
+  .planb{display:block; margin-top:4px; font-size:12.5px; color:var(--teal); background:var(--teal-tint); padding:3px 9px; border-radius:var(--radius-sm);}
+  .option-box{border:1px dashed var(--line); border-radius:var(--radius-md); padding:12px 14px; margin:8px 0; background:#FBFAF6;}
+  .option-box .opt-title{font-weight:800; font-size:13.5px; margin-bottom:4px;}
+
   /* ---------- Checklist ---------- */
   .check-item{display:flex; align-items:flex-start; gap:12px; padding:12px 4px; border-top:1px dashed var(--line);}
   .check-item:first-child{border-top:none;}
@@ -561,42 +571,48 @@
 
   <div class="day">
     <div class="day-head">
-      <div><div class="day-date">9/21 (월)</div><div class="day-title">유니버설 스튜디오 + 탄종비치</div></div>
+      <div><div class="day-date">9/21 (월)</div><div class="day-title">유니버설 스튜디오 + 호텔 부대시설</div></div>
       <span class="hotel-chip" style="background:var(--h1)">Outpost Sentosa</span>
     </div>
     <div class="day-body">
       <div class="item"><div class="time">08:00</div><div class="content"><div class="title">조식 (호텔, 포함)</div><div class="desc">시간 되면 07:30 Sky Pool 잠깐 이용</div></div></div>
       <div class="item transit"><div class="time">🚶</div><div class="content">호텔 → 유니버설 스튜디오: 도보 15~20분 또는 센토사 익스프레스 모노레일 1정거장</div></div>
       <div class="item"><div class="time">10:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Singapore" target="_blank">📍 유니버설 스튜디오 싱가포르</a><div class="desc">~17:30 관람</div><span class="price">성인 S$83~88 · 어린이 S$62~69 · 익스프레스패스 +S$60내외</span></div></div>
-      <div class="item"><div class="time">18:00</div><div class="content"><div class="title">탄종비치 이동</div><div class="desc">택시/그랩 약 10~15분 · 또는 센토사 비치 셔틀버스(무료, 환승 포함 약 25분)</div></div></div>
-      <div class="item"><div class="time">19:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Tanjong+Beach+Club+Sentosa+Singapore" target="_blank">📍 Tanjong Beach Club</a><div class="desc">노을 보며 저녁, 양식·버거·스테이크 위주</div><span class="price">⚠️ 예약 권장 (선셋 시간대·데이베드는 사전예약 필수)</span><br><a class="book-link" href="https://www.tanjongbeachclub.com/reservations" target="_blank">예약하기 →</a></div></div>
-      <div class="item"><div class="time">21:00</div><div class="content"><a class="title maplink" style="border-bottom-color:var(--h1);" href="https://www.google.com/maps/search/?api=1&query=The+Outpost+Hotel+Sentosa+Singapore" target="_blank">🏨 Outpost Hotel Sentosa 복귀</a><div class="desc">택시/그랩 약 10~15분</div></div></div>
+      <div class="item transit"><div class="time">🚶</div><div class="content">유니버설 → 호텔: 도보 15~20분 또는 모노레일 1정거장</div></div>
+      <div class="item"><div class="time">18:00</div><div class="content"><div class="title">호텔 복귀, Sky Pool 수영</div><div class="desc">7층, 노을+RWS 불꽃놀이 감상 (만 16세 이상)</div></div></div>
+      <div class="item"><div class="time">20:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Sol+%26+Ora+Outpost+Hotel+Sentosa" target="_blank">📍 Sol & Ora</a><div class="desc">호텔 루프탑 레스토랑, 캐주얼 다이닝</div><span class="planb">Plan B: 1-Altitude Coast (같은 호텔, 바+야경)</span></div></div>
     </div>
   </div>
 
   <div class="day">
     <div class="day-head">
-      <div><div class="day-date">9/22 (화)</div><div class="day-title">체크아웃 → 차이나타운 이동</div></div>
+      <div><div class="day-date">9/22 (화)</div><div class="day-title">센토사 마저 즐기고 → 차이나타운 체크인</div></div>
       <span style="display:flex; gap:6px;">
         <span class="hotel-chip" style="background:var(--h1)">Outpost</span>
         <span class="hotel-chip" style="background:var(--h2)">→ Capri</span>
       </span>
     </div>
     <div class="day-body">
-      <div class="item"><div class="time">09:00</div><div class="content"><div class="title">마지막 조식 (Outpost)</div><div class="desc">~10:30</div></div></div>
-      <div class="item transit"><div class="time">🚕</div><div class="content">센토사 → 차이나타운: 택시/그랩 약 20~25분(S$15~20) · 또는 센토사 익스프레스 모노레일→하버프론트역→MRT 하버프론트-차이나타운(NEL, 1정거장)+도보, 총 약 35~40분</div></div>
-      <div class="item"><div class="time">11:00</div><div class="content"><div class="title">Outpost 체크아웃 → <span style="color:var(--h2); font-weight:600;">Capri by Fraser</span> 짐 보관</div></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">Capri → Maxwell Food Centre: 도보 약 12분</div></div>
-      <div class="item"><div class="time">12:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Tian+Tian+Hainanese+Chicken+Rice+Maxwell+Food+Centre+Singapore" target="_blank">📍 Tian Tian Hainanese Chicken Rice</a><div class="desc">Maxwell Food Centre, 미쉐린 빕구르망</div><span class="price">1인 S$6~9</span></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">Maxwell → 차이나타운: 도보 5분 이내</div></div>
-      <div class="item"><div class="time">13:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Buddha+Tooth+Relic+Temple+Singapore" target="_blank">📍 차이나타운 핵심만 도보 (1.5시간)</a><div class="desc">불아사, 벽화거리 위주로 압축</div></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">차이나타운 → 포트캐닝: 도보 15분 · 또는 MRT 차이나타운↔돔비가트 1정거장+도보</div></div>
-      <div class="item"><div class="time">15:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Fort+Canning+Tree+Tunnel+Singapore" target="_blank">📍 포트캐닝 트리터널</a><div class="desc">사진 명소</div></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">포트캐닝 → Capri: 도보 약 18~20분 · 또는 택시/그랩 5~8분</div></div>
-      <div class="item"><div class="time">15:30</div><div class="content"><div class="title">Capri by Fraser 체크인, 루프탑 풀 휴식</div></div></div>
-      <div class="item"><div class="time">19:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Dong+Bei+Xiao+Chu+Upper+Cross+Street+Singapore" target="_blank">📍 동북소주 (东北小厨)</a><div class="desc">숙소 도보 5분, 동북식 중국요리 / 근처 동방미식도 대안</div></div></div>
+      <div class="item"><div class="time">08:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Native+Kitchen+Village+Hotel+Sentosa+Singapore" target="_blank">📍 Native Kitchen (Village Hotel Sentosa)</a><div class="desc">옆 호텔 뷔페 조식 — 체크인 시 프론트에 "Native Kitchen으로 조식 이용하고 싶다" 요청하면 연결됨 (로비 통해 도보 3분)</div><span class="planb">Plan B: Sol & Ora (Outpost 자체 루프탑)</span></div></div>
+      <div class="item"><div class="time">10:00</div><div class="content"><div class="title">체크아웃, 프론트에 짐 보관 요청</div></div></div>
+
+      <div class="transit-box">
+        <span class="tag">🚋 센토사 교통편</span>
+        <p>Beach Station에서 무료로 탈 수 있어요 — 아래서 시간표·노선 확인</p>
+        <div class="transit-btns">
+          <a href="https://www.sentosa.com.sg/en/things-to-do/attractions/sentosa-express/" target="_blank">모노레일 노선·시간표 →</a>
+          <a href="https://www.sentosa.com.sg/en/getting-around/" target="_blank">버스·비치셔틀 노선 →</a>
+        </div>
+      </div>
+
+      <div class="item"><div class="time">10:30</div><div class="content"><div class="title">Sentosa Express 탑승 (Beach Station → Resorts World Station)</div><div class="desc">섬 안 이동은 무료, 약 4분</div></div></div>
+      <div class="item"><div class="time">11:00</div><div class="content"><div class="title">Resorts World 주변 산책</div><div class="desc">S.E.A. 아쿠아리움 외관, Bull Ring 광장, Waterfront 산책로 등 가볍게 구경</div></div></div>
+      <div class="item"><div class="time">12:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Malaysian+Food+Street+Resorts+World+Sentosa" target="_blank">📍 Malaysian Food Street</a><div class="desc">RWS 내 호커 스타일, 편하게 한 끼</div><span class="planb">Plan B: Bread Street Kitchen by Gordon Ramsay (RWS)</span></div></div>
+      <div class="item transit"><div class="time">🚋</div><div class="content">Resorts World Station → Beach Station 모노레일 복귀 (무료, 약 4분) → 짐 찾고 택시/그랩으로 Capri 이동 (약 20~25분)</div></div>
+      <div class="item"><div class="time">14:30</div><div class="content"><div class="title">Capri by Fraser 체크인, 루프탑 풀 휴식</div></div></div>
+      <div class="item"><div class="time">19:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Dong+Bei+Xiao+Chu+Upper+Cross+Street+Singapore" target="_blank">📍 동북소주 (东北小厨)</a><div class="desc">숙소 도보 5분, 동북식 중국요리</div><span class="planb">Plan B: 동방미식 (바로 근처)</span></div></div>
       <div class="item transit"><div class="time">🚶</div><div class="content">동북소주 → Darkness Dessert (Temple Street): 도보 약 5분</div></div>
-      <div class="item"><div class="time">20:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Darkness+Dessert+36+Temple+Street+Singapore" target="_blank">📍 Darkness Dessert 甜品屋</a><div class="desc">전통 중화 디저트 카페, 흑임자·망고포멜로사고·코코넛아이스 등 (36 Temple St, ~13:00~23:00)</div><span class="price">1인 S$6~16</span></div></div>
+      <div class="item"><div class="time">20:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Darkness+Dessert+36+Temple+Street+Singapore" target="_blank">📍 Darkness Dessert 甜品屋</a><div class="desc">전통 중화 디저트 카페, 흑임자·망고포멜로사고·코코넛아이스 등 (36 Temple St, ~13:00~23:00)</div><span class="price">1인 S$6~16</span><span class="planb">Plan B: 동방미식 후식 메뉴로 대체</span></div></div>
       <div class="item transit"><div class="time">🚶</div><div class="content">Darkness Dessert → 클락키 선착장: 도보 약 8분</div></div>
       <div class="item"><div class="time">20:45</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Singapore+River+Cruise+Clarke+Quay" target="_blank">📍 Singapore River Cruise</a><div class="desc">클락키 선착장, 선셋 보트투어 약 40분</div></div></div>
       <div class="item transit"><div class="time">🚕</div><div class="content">클락키 → 탄종파거: 택시/그랩 약 8분 · 도보 시 약 20분</div></div>
@@ -607,20 +623,18 @@
 
   <div class="day">
     <div class="day-head">
-      <div><div class="day-date">9/23 (수)</div><div class="day-title">싱가포르 동물원 + 마리나베이</div></div>
+      <div><div class="day-date">9/23 (수)</div><div class="day-title">동물원 브런치 + 가든스 바이 더 베이 + 마리나베이</div></div>
       <span class="hotel-chip" style="background:var(--h2)">Capri China Square</span>
     </div>
     <div class="day-body">
-      <div class="item"><div class="time">08:00</div><div class="content"><div class="title">조식 (숙소 불포함 → 근처 카페)</div></div></div>
-      <div class="item"><div class="time">08:45</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Singapore+Zoo" target="_blank">📍 싱가포르 동물원 이동</a><div class="desc">택시/그랩 약 35~40분(S$28~35) · 또는 MRT 환승 2~3회+맨다이 셔틀버스, 약 1시간~1시간 20분</div></div></div>
-      <div class="item"><div class="time">09:30</div><div class="content"><div class="title">싱가포르 동물원</div><div class="desc">~13:00 관람, 트램 포함</div><span class="price">비거주자 성인 S$48~49 · 어린이 S$33~34</span></div></div>
-      <div class="item transit"><div class="time">🚕</div><div class="content">동물원 → 숙소 인근: 택시/그랩 약 35~40분</div></div>
-      <div class="item"><div class="time">13:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Song+Fa+Bak+Kut+Teh+New+Bridge+Road+Singapore" target="_blank">📍 Song Fa Bak Kut Teh</a><div class="desc">숙소 도보 5분, 점심</div><span class="price">1인 S$10~15</span></div></div>
-      <div class="item"><div class="time">15:00</div><div class="content"><div class="title">호텔 루프탑 풀 휴식</div><div class="desc">~17:00</div></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">호텔 → 마리나베이: 도보 약 20~25분 · 또는 MRT 차이나타운→래플스플레이스(1정거장)+도보 10분, 총 약 15분 · 택시/그랩 8분</div></div>
-      <div class="item"><div class="time">18:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Marina+Bay+Waterfront+Promenade+Singapore" target="_blank">📍 마리나베이 워터프론트 산책</a></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">워터프론트 → JUMBO Seafood(리버사이드포인트): 도보 약 15분 · 택시/그랩 8분</div></div>
-      <div class="item"><div class="time">18:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=JUMBO+Seafood+Riverside+Point+Singapore" target="_blank">📍 JUMBO Seafood (Riverside Point)</a><div class="desc">칠리크랩</div><span class="seafood">🦀 해산물 트라이</span><span class="price">2인 S$150~200대 (시가)</span><br><span class="price">⚠️ 예약 필수 (2~3일 전, 리버뷰 좌석 원하면 미리 요청)</span><br><a class="book-link" href="https://www.tablecheck.com/en/jumbo-seafood-riverside/reserve" target="_blank">예약하기 →</a></div></div>
+      <div class="item"><div class="time">08:15</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Singapore+Zoo" target="_blank">📍 싱가포르 동물원 이동</a><div class="desc">택시/그랩 약 35~40분(S$28~35)</div></div></div>
+      <div class="item"><div class="time">09:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Ah+Meng+Restaurant+Singapore+Zoo" target="_blank">📍 Breakfast in the Wild</a><div class="desc">Ah Meng Restaurant, 오랑우탄·코끼리와 함께하는 조식 뷔페 (~10:30, 동물 등장 9:15~10:00)</div><span class="price">성인 S$45 · 어린이 S$35 (동물원 입장권 별도)</span><span class="planb">Plan B: 동물원 내 Casa Verde 푸드코트 (예약 없이 가능)</span><br><span class="price">⚠️ 최소 1~3일 전 예약 권장</span></div></div>
+      <div class="item"><div class="time">10:30</div><div class="content"><div class="title">싱가포르 동물원 관람 계속</div><div class="desc">~13:00, 트램 포함</div><span class="price">비거주자 성인 S$48~49 · 어린이 S$33~34</span></div></div>
+      <div class="item transit"><div class="time">🚕</div><div class="content">동물원 → 가든스 바이 더 베이: 택시/그랩 약 40분</div></div>
+      <div class="item"><div class="time">14:00</div><div class="content"><div class="title">도착, 카페에서 여유</div></div></div>
+      <div class="item"><div class="time">15:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Gardens+by+the+Bay+Singapore" target="_blank">📍 가든스 바이 더 베이</a><div class="desc">~17:00, 클라우드 포레스트·플라워 돔</div><span class="price">돔 입장 성인 약 S$32</span></div></div>
+      <div class="item transit"><div class="time">🚶</div><div class="content">가든스 → JUMBO Seafood(리버사이드포인트): 택시/그랩 약 15분</div></div>
+      <div class="item"><div class="time">18:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=JUMBO+Seafood+Riverside+Point+Singapore" target="_blank">📍 JUMBO Seafood (Riverside Point)</a><div class="desc">칠리크랩</div><span class="seafood">🦀 해산물 트라이</span><span class="price">2인 S$150~200대 (시가)</span><br><span class="price">⚠️ 예약 필수 (2~3일 전, 리버뷰 좌석 원하면 미리 요청)</span><br><a class="book-link" href="https://www.tablecheck.com/en/jumbo-seafood-riverside/reserve" target="_blank">예약하기 →</a><span class="planb">Plan B: Satay by the Bay (가든스 내, 예약 불필요)</span></div></div>
       <div class="item transit"><div class="time">🚶</div><div class="content">JUMBO → 마리나베이: 도보 약 18분 · 택시/그랩 8분</div></div>
       <div class="item"><div class="time">20:30</div><div class="content"><div class="title">마리나베이 야경 감상</div></div></div>
       <div class="item"><div class="time">21:00</div><div class="content"><a class="title maplink" style="border-bottom-color:var(--h2);" href="https://www.google.com/maps/search/?api=1&query=Capri+by+Fraser+China+Square+Singapore" target="_blank">🏨 Capri by Fraser 복귀</a><div class="desc">택시 약 8분 또는 MRT+도보 약 15분</div></div></div>
@@ -677,6 +691,14 @@
     </ul>
 
     <div class="warn2">⚠️ 문의: 디즈니 크루즈 고객센터 +1-800-951-3532 (미국 동부시간 기준 평일 08:00~22:00, 주말 09:00~20:00)</div>
+
+    <h4>👍 다녀온 사람들이 좋았다고 하는 것들</h4>
+    <ul>
+      <li>승선하자마자 Guest Services에 전화해서 "Dazzle and Delight Fireworks" 패키지 예약 (S$50 내외, 전용 좌석+샴페인+디저트)</li>
+      <li>Pixie Dusting: 객실 문에 자석 데코 붙이는 문화 — 자석(접착식 X) 미리 챙겨가면 재밌음</li>
+      <li>Deck 10·17에 무료 음료스테이션 있어서 개인 텀블러 챙기면 편함</li>
+      <li>로테이션 다이닝: 같은 웨이터팀이 계속 따라다녀서 둘째 날부터 취향 기억해줌</li>
+    </ul>
   </div>
 
   <div class="day">
@@ -701,9 +723,17 @@
       <div class="item"><div class="time">오후</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Marina+Bay+Cruise+Centre+Singapore" target="_blank">📍 Marina Bay Cruise Centre 하선</a></div></div>
       <div class="item transit"><div class="time">🚕</div><div class="content">크루즈터미널 → Swissôtel: 택시/그랩 약 15~20분(S$12~18) · 또는 MRT 마리나사우스피어역→시티홀역(NSL 직결) 약 15분+도보 5분</div></div>
       <div class="item"><div class="time">15:00</div><div class="content"><a class="title maplink" style="border-bottom-color:var(--h3);" href="https://www.google.com/maps/search/?api=1&query=Swissotel+The+Stamford+Singapore" target="_blank">🏨 Swissôtel The Stamford 체크인</a><div class="desc">L65 라운지 혜택 포함 여부 확인</div></div></div>
-      <div class="item"><div class="time">19:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Lau+Pa+Sat+Singapore" target="_blank">📍 Lau Pa Sat Satay Street</a><div class="desc">숙소 도보 10분, 저녁</div><span class="price">1인 세트 S$20~31</span></div></div>
-      <div class="item"><div class="time">21:00</div><div class="content"><div class="title">스카이파크 전망대 야경 <span style="font-weight:400; font-size:13px;">또는</span> <a class="title maplink" style="font-size:13px; border-bottom-width:1px;" href="https://www.google.com/maps/search/?api=1&query=MO+Bar+Mandarin+Oriental+Singapore" target="_blank">MO Bar</a>에서 칵테일 (택1)</div><div class="desc">둘 다 도보 15분 이내 · MO Bar는 예약 권장 <a class="book-link" href="https://www.sevenrooms.com/reservations/mosinmobar" target="_blank">예약하기 →</a></div></div></div>
-      <div class="item"><div class="time">22:00</div><div class="content"><a class="title maplink" style="border-bottom-color:var(--h3);" href="https://www.google.com/maps/search/?api=1&query=Swissotel+The+Stamford+Singapore" target="_blank">🏨 Swissôtel The Stamford 복귀</a><div class="desc">도보 10~15분</div></div></div>
+
+      <div class="option-box">
+        <div class="opt-title">🛎️ 체크인 후 자유시간 — 이 중에서 골라보세요</div>
+        <ul style="margin:4px 0 0 18px; font-size:13.5px; color:var(--ink-soft);">
+          <li><strong>L65 Executive Lounge</strong>에서 이브닝 칵테일(17:30~19:30) — 예약된 룸타입이면 무료</li>
+          <li>호텔과 바로 연결된 <strong>Raffles City Shopping Centre</strong> 둘러보기 (엘리베이터로 바로 접근)</li>
+          <li>도보 10분 거리 <strong>Suntec City</strong>까지 산책 — 분수쇼(Fountain of Wealth)도 볼만함</li>
+          <li>저녁은 <a class="title maplink" style="font-size:13px; border-bottom-width:1px;" href="https://www.google.com/maps/search/?api=1&query=Lau+Pa+Sat+Singapore" target="_blank">Lau Pa Sat</a> 사테거리(도보 10분) 또는 <a class="title maplink" style="font-size:13px; border-bottom-width:1px;" href="https://www.google.com/maps/search/?api=1&query=MO+Bar+Mandarin+Oriental+Singapore" target="_blank">MO Bar</a> 칵테일(도보 15분, 예약 권장) 중 택1</li>
+        </ul>
+      </div>
+      <div class="item"><div class="time">22:00</div><div class="content"><a class="title maplink" style="border-bottom-color:var(--h3);" href="https://www.google.com/maps/search/?api=1&query=Swissotel+The+Stamford+Singapore" target="_blank">🏨 Swissôtel The Stamford 복귀</a></div></div>
     </div>
   </div>
 
@@ -716,12 +746,14 @@
       <div class="item"><div class="time">07:00</div><div class="content"><div class="title">조식</div><div class="desc">~09:00, L65 라운지(확인됐다면) 또는 Clove 유료</div></div></div>
       <div class="item"><div class="time">09:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Merlion+Park+Singapore" target="_blank">📍 머라이언 파크 산책</a><div class="desc">호텔 바로 앞</div></div></div>
       <div class="item"><div class="time">10:00</div><div class="content"><div class="title">체크아웃, 짐 보관</div></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">호텔 → 가든스 바이 더 베이: MRT 시티홀→베이프론트(2정거장)+도보 5분, 총 약 15분 · 택시/그랩 8분</div></div>
-      <div class="item"><div class="time">10:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Gardens+by+the+Bay+Singapore" target="_blank">📍 가든스 바이 더 베이</a><div class="desc">~13:00, 슈퍼트리·클라우드포레스트</div><span class="price">돔 입장 성인 약 S$32</span></div></div>
-      <div class="item transit"><div class="time">🚶</div><div class="content">가든스 → MBS몰: 베이프론트 지하보도 이용, 도보 약 8~10분</div></div>
-      <div class="item"><div class="time">13:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Din+Tai+Fung+Marina+Bay+Sands+Singapore" target="_blank">📍 Din Tai Fung</a><div class="desc">마리나베이샌즈몰, 딤섬</div><span class="price">1인 S$20~30</span></div></div>
-      <div class="item"><div class="time">15:00</div><div class="content"><div class="title">마지막 쇼핑</div><div class="desc">더숍스 앳 MBS / 래플스시티 · 티타임은 <a class="title maplink" style="font-size:13px; border-bottom-width:1px;" href="https://www.google.com/maps/search/?api=1&query=Bacha+Coffee+Marina+Bay+Sands+Singapore" target="_blank">Bacha Coffee</a> 또는 <a class="title maplink" style="font-size:13px; border-bottom-width:1px;" href="https://www.google.com/maps/search/?api=1&query=TWG+Tea+on+the+Bay+Marina+Bay+Sands" target="_blank">TWG Tea on the Bay</a> (둘 다 같은 몰 안)</div></div></div>
-      <div class="item transit"><div class="time">🚕</div><div class="content">MBS몰 → 호텔: 택시/그랩 약 8분 · 또는 MRT 베이프론트→시티홀(2정거장)+도보 5분</div></div>
+      <div class="item transit"><div class="time">🚶</div><div class="content">호텔 → CHIJMES: 도보 약 5분</div></div>
+      <div class="item"><div class="time">10:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=CHIJMES+Singapore" target="_blank">📍 CHIJMES</a><div class="desc">옛 성당 건물을 개조한 헤리티지 공간, 가볍게 산책</div></div></div>
+      <div class="item transit"><div class="time">🚶</div><div class="content">CHIJMES → National Gallery: 도보 약 5분</div></div>
+      <div class="item"><div class="time">11:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=National+Gallery+Singapore" target="_blank">📍 National Gallery Singapore 외관</a><div class="desc">구 시청·대법원 건물, 로비/카페만 가볍게 둘러봐도 좋음</div></div></div>
+      <div class="item transit"><div class="time">🚕</div><div class="content">National Gallery → Suntec City: 택시/그랩 약 5분 · 도보 시 약 12분</div></div>
+      <div class="item"><div class="time">13:00</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Din+Tai+Fung+Suntec+City+Singapore" target="_blank">📍 Din Tai Fung (Suntec City)</a><div class="desc">딤섬, Raffles City 지점보다 덜 붐빔</div><span class="price">1인 S$20~30</span><span class="planb">Plan B: Din Tai Fung (Raffles City, 호텔 바로 연결)</span></div></div>
+      <div class="item"><div class="time">14:30</div><div class="content"><a class="title maplink" href="https://www.google.com/maps/search/?api=1&query=Fountain+of+Wealth+Suntec+City" target="_blank">📍 Fountain of Wealth 산책 + 쇼핑</a><div class="desc">Suntec City 내 세계 최대급 분수, 쇼핑도 함께</div></div></div>
+      <div class="item transit"><div class="time">🚕</div><div class="content">Suntec City → 호텔: 택시/그랩 약 5분 · 또는 도보 12분</div></div>
       <div class="item"><div class="time">18:30</div><div class="content"><div class="title">짐 찾기</div></div></div>
       <div class="item"><div class="time">19:00</div><div class="content"><div class="title">창이공항 이동</div><div class="desc">택시/그랩 약 25~30분(S$30~40) · 또는 MRT 시티홀→탄메라 환승→창이공항 약 45~50분</div></div></div>
       <div class="item"><div class="time">22:50</div><div class="content"><div class="title">인천행 출발</div></div></div>
